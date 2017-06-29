@@ -88,7 +88,8 @@
                   <th ng-click="vm.sort('camserv')" ng-class="vm.sortType == 'camserv' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Camserv</th>
                   <th ng-click="vm.sort('uid')" ng-class="vm.sortType == 'uid' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">UserID</th>
                   <th ng-click="vm.sort('sid')" ng-class="vm.sortType == 'sid' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">SessionID</th>
-                  <th ng-click="vm.sort('rc')" ng-class="vm.sortType == 'rc' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Score</th>
+                  <th ng-click="vm.sort('camscore')" ng-class="vm.sortType == 'camscore' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Score</th>
+                  <th ng-click="vm.sort('m.rc')" ng-class="vm.sortType == 'm.rc' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Users</th>
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('topic')" ng-class="vm.sortType == 'topic' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Topic</th>
                   <th></th>
                 </tr>
@@ -101,7 +102,8 @@
                   <td>{{ model.camserv }}</td>
                   <td>{{ model.uid }}</td>
                   <td>{{ model.sid }}</td>
-                  <td>{{ model.rc.toFixed(0) }}</td>
+                  <td>{{ model.camscore.toFixed(0) }}</td>
+                  <td>{{ model.rc }}</td>
                   <td>{{ model.topic }}</td>
                   <td>
                     <button id="{{ 'action-list' + model.uid }}" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">more_vert</i></button>
@@ -257,7 +259,7 @@
                 // get text description of the state
                 m.state = getState(m.vs);
 
-                if (m.topic && m.topic.length > 3) {m.topic = m.topic.substr(0, 54);}
+                if (m.topic && m.topic.length > 3) {m.topic = m.topic.substr(0, 44);}
 
                 m.new_model = m.new_model ? 'new_releases' : '';return m;});
 
