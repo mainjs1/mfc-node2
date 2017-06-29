@@ -86,10 +86,10 @@
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('vs')" ng-class="vm.sortType == 'vs' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">State</th>
                   <th ng-click="vm.sort('camserv')" ng-class="vm.sortType == 'camserv' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Mob.</th>
                   <th ng-click="vm.sort('camserv')" ng-class="vm.sortType == 'camserv' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Camserv</th>
-                  <th ng-click="vm.sort('uid')" ng-class="vm.sortType == 'uid' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">UserID</th>
                   <th ng-click="vm.sort('camscore')" ng-class="vm.sortType == 'camscore' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Score</th>
                   <th ng-click="vm.sort('m.rc')" ng-class="vm.sortType == 'm.rc' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Users</th>
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('continent')" ng-class="vm.sortType == 'continent' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Continent</th>
+                  <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('new_model')" ng-class="vm.sortType == 'new_model' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">New</th>
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('topic')" ng-class="vm.sortType == 'topic' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Topic</th>
                   <th></th>
                 </tr>
@@ -100,10 +100,10 @@
                   <td class="mdl-data-table__cell--non-numeric"><a class="mdl-color-text--blue-900" ng-click="vm.enter_room(model)">{{ model.state }}</a></td>
                   <td class="mdl-data-table__cell--numeric"><a class="mdl-color-text--cyan-red">{{( model.camserv > 840 )}}</a></td>
                   <td>{{ model.camserv }}</td>
-                  <td>{{ model.uid }}</td>
                   <td>{{ model.camscore.toFixed(0) }}</td>
                   <td>{{ model.rc }}</td>
                   <td>{{ model.continent }}</td>
+                  <td class="mdl-data-table__cell--non-numeric"><i class="material-icons mdi-24 mdl-color-text--orange-500" ng-bind="model.new_model"></i></td>
                   <td>{{ model.topic }}</td>
                   <td>
                     <button id="{{ 'action-list' + model.uid }}" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">more_vert</i></button>
