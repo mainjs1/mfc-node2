@@ -134,7 +134,7 @@ function getOnlineModels(fileno) {
         for (var i = 1; i < data.rdata.length; i += 1) {
           m = data.rdata[i];
 
-          onlineModels.push({nm:m[0],sid:m[1],uid:m[2],vs:m[3],city:m[5],camserv:m[6],camscore:m[16],rc:m[20],continent: m[17],new_model:m[15],topic:m[14]});
+          onlineModels.push({nm:m[0],sid:m[1],uid:m[2],vs:m[3],city:m[5],camserv:m[6],camscore:m[16],rc:m[20],continent: m[17],new_model:m[15],tags:m[21],topic:m[14]});
         }
       } catch (err) {
         throw new Error('Failed to parse data');
