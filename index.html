@@ -90,7 +90,7 @@
                   <th ng-click="vm.sort('m.rc')" ng-class="vm.sortType == 'm.rc' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Users</th>
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('continent')" ng-class="vm.sortType == 'continent' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Continent</th>
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('new_model')" ng-class="vm.sortType == 'new_model' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">New</th>
-                  <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('topic')" ng-class="vm.sortType == 'topic' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Topic</th>
+                  <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('tags')" ng-class="vm.sortType == 'tags' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Tags</th>
                   <th></th>
                 </tr>
               </thead>
@@ -104,7 +104,7 @@
                   <td>{{ model.rc }}</td>
                   <td>{{ model.continent }}</td>
                   <td class="mdl-data-table__cell--non-numeric"><i class="material-icons mdi-24 mdl-color-text--orange-500" ng-bind="model.new_model"></i></td>
-                  <td>{{ model.topic }}</td>
+                  <td>{{ model.tags }}</td>
                   <td>
                     <button id="{{ 'action-list' + model.uid }}" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">more_vert</i></button>
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="{{ 'action-list' + model.uid }}">
@@ -259,7 +259,7 @@
                 // get text description of the state
                 m.state = getState(m.vs);
 
-                if (m.topic && m.topic.length > 3) {m.topic = m.topic.substr(0, 44);}
+                if (m.tags && m.tags.length > 3) {m.tags = decodeURIComponent(m.tags).substr(0,46);}
 
                 m.new_model = m.new_model ? 'new_releases' : '';return m;});
 
