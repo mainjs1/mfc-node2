@@ -52,6 +52,7 @@ The MFC Recorder now captures the MFC stream in standard FLV quality, as if it w
 That's why I think that only one directory is enough where all the files are recorded and in most cases don't need a conversion.
 By pressing the model name you get a preview of the current model in the room. You can refresh this page later if you are interested in a new situation.
 If the model is called 'no mobile feed' then you will get a link that you can copy and start in a new page of your browser and see what's happening in the room. Unfortunately, you can not record this unit with this recorder, but by pressing 'state / online' you can get the stream of that model in your browser.
+I added in `config.yml` the option to edit the date format for the recorded file.
 
 For advanced users
 ===========
