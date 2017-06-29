@@ -1,61 +1,60 @@
-mfc-node
-==========
-
+mfc-node-recorder
+=================
+I've been using the MFC Recorder for a long time and changed it a bit, because I wanted to make it easier and better. 
+If I made a mistake in the steps, say freely, so we'll correct it because I did not do something similar before.
 mfc-node lets you follow and record your favorite models' shows on myfreecams.com
-
-This is an attempt to create a script similar to [capturbate-node](https://github.com/SN4T14/capturebate-node) based on different pieces of code found on the Internet.
-
-![alt screenshot](./screenshot.png)
+This is an attempt to create a script similar to [capturbate-node](https://github.com/SN4T14/capturebate-node) 
+and [mfc-node](https://github.com/sstativa/mfc-node) based on different pieces of code found on the Internet.
 
 Credits:
 * [capturbate-node](https://github.com/SN4T14/capturebate-node)
 * [Sembiance/get_mfc_video_url.js](https://gist.github.com/Sembiance/df151de0006a0bf8ae54)
+* [mfc-node](https://github.com/sstativa/mfc-node)
 
 Requirements
-==========
-[Node.js](https://nodejs.org/download/) used to run mfc-node, hence the name. (Tested on `4.4.7` and `6.3.1`)
-
-[ffmpeg](https://www.ffmpeg.org/download.html)
-
-Attention
-===========
-Even thought this version of the script should be able to use an old version of `config.yml` file from previous releases you should make a backup of old `config.yml` file before pulling the code.
+============
+[Node.js](https://nodejs.org/download/) used to run mfc-node, hence the name. (Tested on `6.9.4` and `6.10.2`)
+[ffmpeg] must be a last version somewere in the path.
+This produce a high quality flv file who not need conversion, so that part is removed from the script.
 
 Setup
-===========
-
-1. Install [Node.js](https://nodejs.org/download/) (tested with 4.6.x and 6.3.x).
-2. Download and unpack the [code](https://github.com/sstativa/mfc-node/archive/master.zip).
+=====
+1. Install [Node.js](https://nodejs.org/download/) (tested with `6.9.4` and `6.10.2`).
+2. Download and unpack the [code](https://github.com/horacio/mfc-node-recorder/archive/master.zip).
 3. Open console and go into the directory where you unpacked the files.
-4. Install requirements by running `npm install` in the same directory as `main.js` is.
-5. Edit `config.yml` file and set desirable values for `captureDirectory`, `completeDirectory`, `modelScanInterval`.
-6. Install [ffmpeg](https://www.ffmpeg.org/download.html). For Windows users, copy `ffmpeg.exe` into same directory as `main.js` is.
+4. Install requirements by running `npm install` in the same directory as `mfc.js` is.
+5. Edit `cfg-mfc.yml` file and set desirable values for `captureDirectory`, `modelScanInterval` and `dateFormat`.
+6. Install [ffmpeg]. For Windows users, copy `ffmpeg.exe` into same directory as `mfc.js` or somewhere in the path ('C:\Windows\' for example)
 
 Running
 ===========
-
 1. Open console and go into the directory where you unpacked the files.
 2. Run `node main.js`.
-3. Open [http://localhost:9080](http://localhost:9080) in you browser. The list of online models will be displayed with a set of allowed commands for each model:
-
+3. Open http://localhost:9080 in your browser. 
+The list of online models will be displayed with a set of allowed commands for each model:
 	* __Include__ - if you want to record the model
 	* __Exclude__ - if you don't want to record the model anymore
 	* __Delete__ - if you are not interested in the model and wanna hide her permanently
 
-> Note: This is not a real-time application. Whenever your __include__, __exclude__ or __delete__ the model your changes will be applied only with the next iteration of `mainLoop` function of the script. `mainLoop` runs every 30 seconds (default value for `modelScanInterval`).
+> Note: This is not a real-time application. Whenever your __include__, __exclude__ or __delete__ the model your changes will be 
+  applied only with the next iteration of `mainLoop` function of the script. `mainLoop` runs every 30 seconds (default value for 
+  `modelScanInterval`).
 
-> Note: There is no __auto reload__ feature, you have to reload the list manually (__big red button__), however, keep in mind the script updates the list internally every 30 seconds (`modelScanInterval`), therefore sometimes you'll have to wait 30 seconds to see your updates.
+> Note: There is no __auto reload__ feature, you have to reload the list manually (__big red button__), however, keep in mind the 
+  script updates the list internally every 30 seconds (`modelScanInterval`), therefore sometimes you'll have to wait 30 seconds to 
+  see your updates.
 
-> Note: Be mindful when capturing many streams at once to have plenty of space on disk and the bandwidth available or you’ll end up dropping a lot of frames and the files will be useless.
+> Note: Be mindful when capturing many streams at once to have plenty of space on disk and the bandwidth available or you’ll end 
+  up dropping a lot of frames and the files will be useless.
 
-Converting
-===========
-
-There is a simple script to convert `.ts` files. Just edit `convert.yml` file and set proper values for `srcDirectory` (should be the same with `completeDirectory`) and `dstDirectory`, and run `node convert.js` in a separate console window.
+I changed lots of things but I will try to list some of my most important changes.
+The MFC Recorder now captures the MFC stream in standard FLV quality, as if it was recorded eg with rtmpdump. 
+That's why I think that only one directory is enough where all the files are recorded and in most cases don't need a conversion.
+By pressing the model name you get a preview of the current model in the room. You can refresh this page later if you are interested in a new situation.
+If the model is called 'no mobile feed' then you will get a link that you can copy and start in a new page of your browser and see what's happening in the room. Unfortunately, you can not record this unit with this recorder, but by pressing 'state / online' you can get the stream of that model in your browser.
 
 For advanced users
 ===========
-
 There are several special URLs that allow implementing some operations with a model even if she is offline.
 
 __Include__
@@ -78,4 +77,3 @@ __Delete__
 http://localhost:9080/models/delete?nm=modelname
 http://localhost:9080/models/delete?uid=12345678
 ```
-
