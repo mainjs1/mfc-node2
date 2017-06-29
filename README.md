@@ -24,7 +24,7 @@ Setup
 3. Open console and go into the directory where you unpacked the files.
 4. Install requirements by running `npm install` in the same directory as `mfc.js` is.
 5. Edit `config.yml` file and set desirable values for `captureDirectory`, `modelScanInterval` and `dateFormat`.
-6. Install [ffmpeg]. For Windows users, copy `ffmpeg.exe` into same directory as `mfc.js` or somewhere in the path ('C:\Windows\' for example)
+6. Install [ffmpeg]. For Windows users, copy `ffmpeg.exe` into same directory as `main.js` or somewhere in the path ('C:\Windows\' for example)
 
 Running
 ===========
