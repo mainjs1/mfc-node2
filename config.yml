@@ -1,9 +1,9 @@
-captureDirectory: ./captures
-completeDirectory: ./complete
-modelScanInterval: 30
-minFileSizeMb: 10
+captureDirectory: 'C:\Videos\MFC'
+dateFormat: DDMMYYYY-HHmmss
+modelScanInterval: 60
+minFileSizeMb: 0
 port: 9080
-debug: false
+debug: true
 models: []
 includeModels: []
 includeUids: []
