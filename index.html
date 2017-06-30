@@ -84,7 +84,7 @@
               <tr>
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('nm')" ng-class="vm.sortType == 'nm' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Name</th>
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('vs')" ng-class="vm.sortType == 'vs' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">State</th>
-                  <th ng-click="vm.sort('camserv')" ng-class="vm.sortType == 'camserv' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Mob.</th>
+                  <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('camserv')" ng-class="vm.sortType == 'camserv' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Mob.</th>
                   <th ng-click="vm.sort('camserv')" ng-class="vm.sortType == 'camserv' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Camserv</th>
                   <th ng-click="vm.sort('camscore')" ng-class="vm.sortType == 'camscore' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Score</th>
                   <th ng-click="vm.sort('m.rc')" ng-class="vm.sortType == 'm.rc' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Users</th>
@@ -98,7 +98,7 @@
                 <tr ng-repeat="model in vm.models | orderBy:vm.sortType:vm.sortReverse" ng-class="vm.rowColor(model.vs)">
                   <td class="mdl-data-table__cell--non-numeric"><a class="mdl-color-text--green-800" ng-click="vm.preview(model)" ng-bind="model.nm"></a></td>
                   <td class="mdl-data-table__cell--non-numeric"><a class="mdl-color-text--blue-900" ng-click="vm.enter_room(model)">{{ model.state }}</a></td>
-                  <td class="mdl-data-table__cell--numeric"><a class="mdl-color-text--cyan-red">{{( model.camserv > 840 )}}</a></td>
+                  <td class="mdl-data-table__cell--non-numeric"><a class="mdl-color-text--red-900" ng-click="vm.video_preview(model)">{{( model.camserv > 840 )}}</a></td>
                   <td>{{ model.camserv }}</td>
                   <td>{{ model.camscore.toFixed(0) }}</td>
                   <td>{{ model.rc }}</td>
@@ -217,6 +217,15 @@
         }
       };
 
+      vm.video_preview = function(model) {
+        if ((model.camserv) > 840) {
+          var url3 = ('http://video' + (model.camserv - 500) + '.myfreecams.com:1935/NxServer/ngrp:mfc_' + (100000000 + model.uid) + '.f4v_mobile/playlist.m3u8');
+          open (url3);
+        } else if ((model.camserv) < 840) {
+          alert("\n\nThis is 'No Mobile Feed' model!\n\nSorry no video preview with this method.\n\nClick 'Online' for enter in model room.");
+        }
+      };
+
       vm.rowColor = function(vs) {
         if (vs == -4) {
           return 'mdl-color-text--green-400 mdl-color--green-50';
@@ -259,7 +268,7 @@
                 // get text description of the state
                 m.state = getState(m.vs);
 
-                if (m.tags && m.tags.length > 3) {m.tags = decodeURIComponent(m.tags).substr(0,46);}
+                if (m.tags && m.tags.length > 3) {m.tags = decodeURIComponent(m.tags).substr(0,48);}
 
                 m.new_model = m.new_model ? 'new_releases' : '';return m;});
 
