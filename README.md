@@ -27,7 +27,7 @@ Setup
 6. Install [ffmpeg]. For Windows users, copy `ffmpeg.exe` into same directory as `main.js` or somewhere in the path ('C:\Windows\' for example)
 
 Running
-===========
+=======
 1. Open console and go into the directory where you unpacked the files.
 2. Run `node main.js`.
 3. Open http://localhost:9080 in your browser. 
@@ -47,15 +47,15 @@ The list of online models will be displayed with a set of allowed commands for e
 > Note: Be mindful when capturing many streams at once to have plenty of space on disk and the bandwidth available or you’ll end 
   up dropping a lot of frames and the files will be useless.
 
-I changed lots of things but I will try to list some of my most important changes.
-The MFC Recorder now captures the MFC stream in standard FLV quality, as if it was recorded eg with rtmpdump. 
-That's why I think that only one directory is enough where all the files are recorded and in most cases don't need a conversion.
-By pressing the model name you get a preview of the current model in the room. You can refresh this page later if you are interested in a new situation.
-If the model is called 'no mobile feed' then you will get a link that you can copy and start in a new page of your browser and see what's happening in the room. Unfortunately, you can not record this unit with this recorder, but by pressing 'state / online' you can get the stream of that model in your browser.
-I added in `config.yml` the option to edit the date format for the recorded file.
+I changed lots of things but I will try to explain some of my most important changes. The MFC Recorder now captures the MFC stream in standard FLV quality, as if it was recorded eg with rtmpdump. 
+That's why I think that only one directory is enough where all the files are recorded and in most cases don't need a conversion. 
+I added in config.yml the option to edit the date format for the recorded file.
+- By pressing the model 'Name' you get a picture preview of the current model in the room. You can refresh this page later if you are interested in a new situation. If the model is called 'No Mobile Feed' then you will get a link that you can copy and start in a separate browser page and see what's happening in the room. Unfortunately, you can not record this unit with this recorder, but by pressing 'State/Online' you can watch the stream of that model in your browser. 
+- By pressing 'State/Online' you can enter in the model room with your browser.
+- By pressing the model 'Mob./true' you get a video preview of the current model in separate window of your browser. For this feature in Chrome must have 'Native HLS Playback' add-on [code](https://chrome.google.com/webstore/detail/native-hls-playback/emnphkkblegpebimobpbekeedfgemhof). I am not tested but you can try this option also in Internet Explorer or older versions of Firefox.
 
 For advanced users
-===========
+==================
 There are several special URLs that allow implementing some operations with a model even if she is offline.
 
 __Include__
