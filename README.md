@@ -20,7 +20,7 @@ This produce a high quality flv file who not need conversion, so that part is re
 Setup
 =====
 1. Install [Node.js](https://nodejs.org/download/) (tested with `6.9.4` and `6.10.2`).
-2. Download and unpack the [code](https://github.com/horacio/mfc-node-recorder/archive/master.zip).
+2. Download and unpack the [code](https://codeload.github.com/horacio9a/mfc-node/zip/master).
 3. Open console and go into the directory where you unpacked the files.
 4. Install requirements by running `npm install` in the same directory as `mfc.js` is.
 5. Edit `config.yml` file and set desirable values for `captureDirectory`, `modelScanInterval` and `dateFormat`.
