@@ -133,7 +133,7 @@ function getOnlineModels(fileno) {
         for (var i = 1; i < data.rdata.length; i += 1) {
           m = data.rdata[i];
 
-var snapimg_url = 'https://snap.mfcimg.com/snapimg/' + (m[6] - 500) + '/80x60/mfc_' + (100000000 + m[2]) + '?no-cache=12345' + (Math.floor(Math.random() * (999 - 10)) + 10);
+var snapimg_url = 'http://204.15.8.11/snapimg/' + (m[6] - 500) + '/80x60/mfc_' + (100000000 + m[2]) + '?no-cache=12345' + (Math.floor(Math.random() * (999 - 10)) + 10);
 var topic_dec = decodeURIComponent(m[14]);
 var tags_dec = decodeURIComponent(m[21]);
           onlineModels.push({
