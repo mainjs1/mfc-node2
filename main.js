@@ -130,20 +130,37 @@ function getOnlineModels(fileno) {
       try {
         var data = JSON.parse(response.body.toString('utf8'));
         var m;
-
         for (var i = 1; i < data.rdata.length; i += 1) {
           m = data.rdata[i];
 
-          onlineModels.push({nm:m[0],sid:m[1],uid:m[2],vs:m[3],city:m[5],camserv:m[6],camscore:m[16],rc:m[20],continent: m[17],new_model:m[15],tags:m[21],topic:m[14]});
+var snapimg_url = 'https://snap.mfcimg.com/snapimg/' + (m[6] - 500) + '/80x60/mfc_' + (100000000 + m[2]) + '?no-cache=12345' + (Math.floor(Math.random() * (999 - 10)) + 10);
+var topic_dec = decodeURIComponent(m[14]);
+var tags_dec = decodeURIComponent(m[21]);
+          onlineModels.push({
+            nm: m[0],
+            uid: m[2],
+            vs: m[3],
+            camserv: m[6],
+            new_model: m[15],
+            camscore: m[16],
+            continent: m[17],
+            missmfc: m[19],
+            rc: m[20],
+            tags: tags_dec,
+            topic: topic_dec,
+            snapimg: snapimg_url
+
+          });
         }
       } catch (err) {
         throw new Error('Failed to parse data');
       }
 
-      printMsg(onlineModels.length  + ' models online.');
+      printMsg(onlineModels.length  + ' model(s) online');
     })
-    .timeout(30000); // 30 secs
+    .timeout(20000); // 20 secs
 }
+
 function selectMyModels() {
   return Promise
     .try(function() {
