@@ -134,7 +134,8 @@ function getOnlineModels(fileno) {
           m = data.rdata[i];
 
 var snapimg_url = 'http://204.15.8.11/snapimg/' + (m[6] - 500) + '/80x60/mfc_' + (100000000 + m[2]) + '?no-cache=12345' + (Math.floor(Math.random() * (999 - 10)) + 10);
-var tags_dec = decodeURIComponent(m[21]);
+var tags_dec = '';
+try {tags_dec = decodeURIComponent(m[21])} catch (err) {tags_dec = m[21]}
           onlineModels.push({
             nm: m[0],
             uid: m[2],
@@ -146,7 +147,6 @@ var tags_dec = decodeURIComponent(m[21]);
             rc: m[20],
             tags: tags_dec,
             snapimg: snapimg_url
-
           });
         }
       } catch (err) {
