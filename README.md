@@ -50,9 +50,11 @@ The list of online models will be displayed with a set of allowed commands for e
 I changed lots of things but I will try to explain some of my most important changes. The MFC Recorder now captures the MFC stream in standard FLV quality, as if it was recorded eg with rtmpdump. 
 That's why I think that only one directory is enough where all the files are recorded and in most cases don't need a conversion. 
 I added in config.yml the option to edit the date format for the recorded file.
+- The menu have a small preview, and when the mouse cursor is hover, it will update.
+- When you click on a preview thumbnail, you get menu for include, exclude and delete models from list in config.yml.
 - By pressing the model 'Name' you get a picture preview of the current model in the room. You can refresh this page later if you are interested in a new situation. If the model is called 'No Mobile Feed' then you will get a link that you can copy and start in a separate browser page and see what's happening in the room. Unfortunately, you can not record this unit with this recorder, but by pressing 'State/Online' you can watch the stream of that model in your browser. 
 - By pressing 'State/Online' you can enter in the model room with your browser.
-- By pressing the model 'Mob./true' you get a video preview of the current model in separate window of your browser. For this feature in Chrome must have 'Native HLS Playback' add-on [code](https://chrome.google.com/webstore/detail/native-hls-playback/emnphkkblegpebimobpbekeedfgemhof). I am not tested but you can try this option also in Internet Explorer or older versions of Firefox.
+- By pressing the model 'Mob./true' you get a video preview of the current model in separate window of your browser. For this feature in Chrome must have add-on [Native HLS Playback](https://chrome.google.com/webstore/detail/native-hls-playback/emnphkkblegpebimobpbekeedfgemhof) but I am found another Chrome add-on who is more stable [Play HLS M3u8](https://chrome.google.com/webstore/detail/play-hls-m3u8/ckblfoghkjhaclegefojbgllenffajdc/related)
 
 For advanced users
 ==================
