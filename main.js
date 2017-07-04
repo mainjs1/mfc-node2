@@ -134,7 +134,6 @@ function getOnlineModels(fileno) {
           m = data.rdata[i];
 
 var snapimg_url = 'http://204.15.8.11/snapimg/' + (m[6] - 500) + '/80x60/mfc_' + (100000000 + m[2]) + '?no-cache=12345' + (Math.floor(Math.random() * (999 - 10)) + 10);
-var topic_dec = decodeURIComponent(m[14]);
 var tags_dec = decodeURIComponent(m[21]);
           onlineModels.push({
             nm: m[0],
@@ -144,10 +143,8 @@ var tags_dec = decodeURIComponent(m[21]);
             new_model: m[15],
             camscore: m[16],
             continent: m[17],
-            missmfc: m[19],
             rc: m[20],
             tags: tags_dec,
-            topic: topic_dec,
             snapimg: snapimg_url
 
           });
