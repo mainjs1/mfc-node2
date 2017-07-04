@@ -13,18 +13,18 @@ Credits:
 
 Requirements
 ============
-[Node.js](https://nodejs.org/download/) used to run mfc-node, hence the name. (Tested on `6.9.4` and `6.10.2`)
-[ffmpeg] must be a last version somewere in the path.
+[Node.js](https://nodejs.org/download/release/) used to run mfc-node, hence the name. (tested with `7.9.0` and `8.1.3`)
+[ffmpeg](http://ffmpeg.org/releases/) must be a last version somewere in the path.
 This produce a high quality flv file who not need conversion, so that part is removed from the script.
 
 Setup
 =====
-1. Install [Node.js](https://nodejs.org/download/) (tested with `6.9.4` and `6.10.2`).
+1. Install [Node.js](https://nodejs.org/download/release/) (tested with `7.9.0` and `8.1.3`).
 2. Download and unpack the [code](https://codeload.github.com/horacio9a/mfc-node/zip/master).
 3. Open console and go into the directory where you unpacked the files.
 4. Install requirements by running `npm install` in the same directory as `mfc.js` is.
 5. Edit `config.yml` file and set desirable values for `captureDirectory`, `modelScanInterval` and `dateFormat`.
-6. Install [ffmpeg]. For Windows users, copy `ffmpeg.exe` into same directory as `main.js` or somewhere in the path ('C:\Windows\' for example)
+6. Install [ffmpeg](http://ffmpeg.org/releases/). For Windows users, copy `ffmpeg.exe` into same directory as `main.js` or somewhere in the path ('C:\Windows\' for example)
 
 Running
 =======
