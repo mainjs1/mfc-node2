@@ -132,22 +132,8 @@ function getOnlineModels(fileno) {
         var m;
         for (var i = 1; i < data.rdata.length; i += 1) {
           m = data.rdata[i];
-
-var snapimg_url = 'http://204.15.8.11/snapimg/' + (m[6] - 500) + '/80x60/mfc_' + (100000000 + m[2]) + '?no-cache=12345' + (Math.floor(Math.random() * (999 - 10)) + 10);
-var tags_dec = '';
-try {tags_dec = decodeURIComponent(m[21])} catch (err) {tags_dec = m[21]}
-          onlineModels.push({
-            nm: m[0],
-            uid: m[2],
-            vs: m[3],
-            camserv: m[6],
-            new_model: m[15],
-            camscore: m[16],
-            continent: m[17],
-            rc: m[20],
-            tags: tags_dec,
-            snapimg: snapimg_url
-          });
+          var snapimg_url = 'http://204.15.8.11/snapimg/' + (m[6] - 500) + '/80x60/mfc_' + (100000000 + m[2]) + '?no-cache=12345' + (Math.floor(Math.random() * (999 - 10)) + 10);
+          onlineModels.push({nm:m[0],sid:m[1],uid:m[2],vs:m[3],camserv:m[6],topic:m[14],camscore:m[16],new_model:m[15],continent: m[17],rc:m[20],tags:m[21],snapimg:snapimg_url});
         }
       } catch (err) {
         throw new Error('Failed to parse data');
