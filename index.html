@@ -204,7 +204,6 @@
         return model.nextMode == 0 || (model.mode == 0 && model.nextMode == undefined);
       };
 
-
       vm.enter_room = function(model) {
         console.log('http://video' + (model.camserv - 500) + '.myfreecams.com:1935/NxServer/ngrp:mfc_' + (100000000 + model.uid) + '.f4v_mobile/playlist.m3u8?nc=1423603882490');
         var url = 'https://www.myfreecams.com/#' + model.nm;
@@ -272,7 +271,7 @@
                 // get text description of the state
                 m.state = getState(m.vs);
 
-                if (m.tags && m.tags.length > 3) {m.tags = m.tags.substr(0,54);}
+                if (m.tags && m.tags.length > 3) {m.tags = decodeURIComponent(m.tags).substr(0,54);}
 
                 m.new_model = m.new_model ? 'new_releases' : '';return m;});
 
