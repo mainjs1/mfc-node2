@@ -90,7 +90,7 @@
                   <th ng-click="vm.sort('rank')" ng-class="vm.sortType == 'rank' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Rank</th>
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('continent')" ng-class="vm.sortType == 'continent' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Continent</th>
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('new_model')" ng-class="vm.sortType == 'new_model' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">New</th>
-                  <th ng-click="vm.sort('m.rc')" ng-class="vm.sortType == 'm.rc' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Viewers</th>
+                  <th ng-click="vm.sort('rc')" ng-class="vm.sortType == 'rc' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Viewers</th>
                   <th class="mdl-data-table__cell--non-numeric" ng-click="vm.sort('tags')" ng-class="vm.sortType == 'tags' ? ('mdl-data-table__header--sorted-' + (vm.sortReverse ? 'ascending' : 'descending') ) : ''">Tags</th>
                   <th></th>
                 </tr>
@@ -163,13 +163,13 @@
 
       vm.snapimg_url = function(model, x) {
 
-// The random number in the url is to force the browser to reload the image and not to use its cache
-var snapshot_url = ('http://204.15.8.11/snapimg/' + (model.camserv - 500) + '/80x60/mfc_' + (100000000 + model.uid) + '?no-cache=12345' + (Math.floor(Math.random() * (999 - 10)) + 10 + x));
-// Only auto-load snapshots for models with 20 or higher viewers, this prevents a higher load on MFC servers and saves bandwidth since only ~25% of the models will get sanpshots
-if (model.rc > 19 || x > 0){return snapshot_url;
-} else {return '';
-}
-};
+      // The random number in the url is to force the browser to reload the image and not to use its cache
+      var snapshot_url = ('http://204.15.8.11/snapimg/' + (model.camserv - 500) + '/80x60/mfc_' + (100000000 + model.uid) + '?no-cache=12345' + (Math.floor(Math.random() * (999 - 10)) + 10 + x));
+      // Only auto-load snapshots for models with 20 or higher viewers, this prevents a higher load on MFC servers and saves bandwidth since only ~25% of the models will get sanpshots
+        if (model.rc > 19 || x > 0){return snapshot_url;
+         } else {return '';
+        }
+      };
 
       vm.sortType = 'nm';
       vm.sortReverse = false;
