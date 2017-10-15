@@ -1,3 +1,5 @@
+The latest version that works is here: [mfc-node-recorder v.2](https://github.com/horacio9a/mfc-node/tree/v2)
+
 mfc-node-recorder
 =================
 I've been using the MFC Recorder for a long time and changed it a bit, because I wanted to make it easier and better. 
