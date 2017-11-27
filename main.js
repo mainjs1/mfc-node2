@@ -68,12 +68,14 @@ resolve(`respkey=${parts[2]}&type=${parts[4]}&opts=${parts[1]}&serv=${parts[3]}&
 connection.sendUTF("hello fcserver\n\0");
 connection.sendUTF("1 0 0 20071025 0 guest:guest\n\0")});
 
-var xchat = ["107","108","61","94","109","22","47","48","49","26","95","20","111","112","113","114","115","116","118","119","41","42","43","44","27","45","46","39","120","121","122","123","124","125","126","67","66","62","63","64","65","23","24","25","69","70","71","72","73","74","75","76","77","40","80","28","29","30","31","32","33","34","35","36","90","91","92","93","81","83","79","68","78","84","85","86","87","88","89","96","97","98","99","100","101","102","103","104","105","106","127"];
-var server = _.sample(xchat); // pick a random xchat server
-//var server = "107"; // pick a fix xchat server
-var xchat_server = 'xchat' + server;
-printDebugMsg('Start searching new models using server: ' + xchat_server);
-client.connect('ws://' + xchat_server + '.myfreecams.com:8080/fcsl','','http://' + xchat_server + '.myfreecams.com:8080',{Cookie: 'company_id=3149; guest_welcome=1; history=7411522,5375294'})}).timeout(30000)} // 30 secs
+var servers = ["xchat107","xchat108","xchat61","xchat94","xchat109","xchat22","xchat47","xchat48","xchat49","xchat26","ychat30","ychat31","xchat95","xchat20","xchat111","xchat112","xchat113","xchat114",
+   "xchat115","xchat116","xchat118","xchat119","xchat41","xchat42","xchat43","xchat44","ychat32","xchat27","xchat45","xchat46","xchat39","ychat33","xchat120","xchat121","xchat122","xchat123","xchat124",
+   "xchat125","xchat126","xchat67","xchat66","xchat62","xchat63","xchat64","xchat65","xchat23","xchat24","xchat25","xchat69","xchat70","xchat71","xchat72","xchat73","xchat74","xchat75","xchat76","xchat77",
+   "xchat40","xchat80","xchat28","xchat29","xchat30","xchat31","xchat32","xchat33","xchat34","xchat35","xchat36","xchat90","xchat92","xchat93","xchat81","xchat83","xchat79","xchat68","xchat78","xchat84",
+   "xchat85","xchat86","xchat87","xchat88","xchat89","xchat96","xchat97","xchat98","xchat99","xchat100","xchat101","xchat102","xchat103","xchat104","xchat105","xchat106","xchat127"];
+var server = _.sample(servers); // pick a random chat server
+printDebugMsg('Start searching new models using server: ' + server);
+client.connect('ws://' + server + '.myfreecams.com:8080/fcsl','','http://' + server + '.myfreecams.com:8080',{Cookie: 'company_id=3149; guest_welcome=1; history=7411522,5375294'})}).timeout(30000)} // 30 secs
 
 function getOnlineModels(fileno) {var url = 'http://www.myfreecams.com/php/FcwExtResp.php?' + fileno; //printDebugMsg(fileno); // respkey, type, opts and serv value
 
