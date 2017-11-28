@@ -22,8 +22,8 @@ Setup
 =====
 1. Install [Node.js](https://nodejs.org/download/release/) (v8.1.3 or higher).
 2. Install [Git](https://git-scm.com/downloads).
-2. Download and unpack the [code](https://codeload.github.com/horacio9a/mfc-node/zip/v2), create directory 'C:/-nm-mfc2' and move all files from 'rar' there.
-3. Open console and go into the default directory ('C:/-nm-mfc2') where are located unpacked files.
+2. Download and unpack the [code](https://codeload.github.com/horacio9a/mfc-node/zip/master), create directory 'C:/-nm-mfc' and move all files from 'rar' there.
+3. Open console and go into the default directory ('C:/-nm-mfc') where are located unpacked files.
 4. Install requirements by running 'npm install' in the same directory as 'main.js' is.
 5. Edit 'config.yml' file and set desirable values for 'captureDirectory', 'dateFormat', 'downloadProgram', 'modelScanInterval' and others data.
 
