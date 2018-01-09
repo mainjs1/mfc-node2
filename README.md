@@ -10,6 +10,7 @@ Credits:
 * [capturbate-node](https://github.com/SN4T14/capturebate-node)
 * [Sembiance/get_mfc_video_url.js](https://gist.github.com/Sembiance/df151de0006a0bf8ae54)
 * [mfc-node](https://github.com/sstativa/mfc-node)
+* [MFCD.exe](https://github.com/ruzzy/)
 
 Requirements
 ============
@@ -17,6 +18,7 @@ Requirements
 2. [Livestreamer](https://github.com/chrippa/livestreamer/releases) last version 1.12.2 It's best to be in C:/Livestreamer
 3. [Streamlink](https://github.com/streamlink/streamlink) last version 0.9.0 better to install it independently (not in python)
 4. [ffmpeg](https://ffmpeg.zeranoe.com/builds/) must be a last version somewere in the path.
+5. [MFCD.exe](http://www.mediafire.com/file/aim84bicrsbbvci/MFCD.rar) MFC Dump by @RuzzyRullez (little modified)
 
 Setup
 =====
@@ -26,6 +28,7 @@ Setup
 3. Open console and go into the default directory ('C:/-nm-mfc') where are located unpacked files.
 4. Install requirements by running 'npm install' in the same directory as 'main.js' is.
 5. Edit 'config.yml' file and set desirable values for 'captureDirectory', 'dateFormat', 'downloadProgram', 'modelScanInterval' and others data.
+6. MFCD.exe must be somewhere in path. Default location is 'C:/Windows'
 
 Running
 =======
@@ -92,3 +95,6 @@ Look after replacement of 'progress.py'
 
 ![alt screenshot](./screenshot2.jpg)
 
+Look after 'MFCD.exe' addition for RTMP recording
+
+![alt screenshot](./screenshot3.jpg)
