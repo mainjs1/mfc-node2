@@ -1,4 +1,4 @@
-// MyFreeCams Recorder v.1.0.3
+// MyFreeCams Recorder v.1.0.4
 
 'use strict';
 var Promise = require('bluebird');
@@ -68,11 +68,12 @@ resolve(`respkey=${parts[2]}&type=${parts[4]}&opts=${parts[1]}&serv=${parts[3]}&
 connection.sendUTF("hello fcserver\n\0");
 connection.sendUTF("1 0 0 20071025 0 guest:guest\n\0")});
 
-var servers = ["xchat108","xchat61","xchat94","xchat109","xchat22","xchat47","xchat48","xchat49","xchat26","ychat30","ychat31","xchat95","xchat20","xchat111","xchat112","xchat113","xchat114",
-   "xchat115","xchat116","xchat118","xchat119","xchat41","xchat42","xchat43","xchat44","ychat32","xchat27","xchat45","xchat46","xchat39","ychat33","xchat120","xchat121","xchat122","xchat123","xchat124",
-   "xchat125","xchat126","xchat67","xchat66","xchat62","xchat63","xchat64","xchat65","xchat23","xchat24","xchat25","xchat69","xchat70","xchat71","xchat72","xchat73","xchat74","xchat75","xchat76","xchat77",
-   "xchat40","xchat80","xchat28","xchat29","xchat30","xchat31","xchat32","xchat33","xchat34","xchat35","xchat36","xchat90","xchat92","xchat93","xchat81","xchat83","xchat79","xchat78","xchat84",
-   "xchat85","xchat86","xchat87","xchat88","xchat89","xchat96","xchat97","xchat98","xchat99","xchat100","xchat101","xchat102","xchat103","xchat104","xchat105","xchat106","xchat127"];
+var servers = ["xchat108","xchat61","xchat94","xchat109","xchat22","xchat47","xchat48","xchat49","xchat26","ychat30","ychat31","xchat95","xchat20","xchat111","xchat112","xchat113",
+               "xchat114","xchat115","xchat116","xchat118","xchat119","xchat41","xchat42","xchat43","xchat44","ychat32","xchat58","xchat27","xchat45","xchat46","xchat39","ychat33",
+               "xchat59","xchat120","xchat121","xchat122","xchat123","xchat124","xchat125","xchat126","xchat67","xchat66","xchat62","xchat63","xchat64","xchat65","xchat23","xchat24",
+               "xchat25","xchat69","xchat70","xchat71","xchat72","xchat73","xchat74","xchat75","xchat76","xchat77","xchat40","xchat80","xchat28","xchat29","xchat30","xchat31","xchat32",
+               "xchat33","xchat34","xchat35","xchat36","xchat90","xchat92","xchat93","xchat81","xchat83","xchat79","xchat78","xchat84","xchat85","xchat86","xchat87","xchat88","xchat89",
+               "xchat96","xchat97","xchat98","xchat99","xchat100","xchat101","xchat102","xchat103","xchat104","xchat105","xchat106","xchat127"];
 var server = _.sample(servers); // pick a random chat server
 printDebugMsg('Start searching new models using server: ' + server);
 client.connect('ws://' + server + '.myfreecams.com:8080/fcsl','','http://' + server + '.myfreecams.com:8080',{Cookie: 'company_id=3149; guest_welcome=1; history=7411522,5375294'})}).timeout(30000)} // 30 secs
@@ -185,6 +186,7 @@ var fileFormat;
    if (config.downloadProgram == 'sl') {fileFormat = 'mp4'}
    if (config.downloadProgram == 'ff-ts') {fileFormat = 'ts'}
    if (config.downloadProgram == 'ff-flv') {fileFormat = 'flv'}
+   if (config.downloadProgram == 'rtmp') {fileFormat = 'flv'}
 
 return Promise.try(function() {var filename = model.nm + '_MFC_' + getCurrentDateTime() + '.' + fileFormat;
 
@@ -211,6 +213,7 @@ var captureProcess;
    if (config.downloadProgram == 'sl') {captureProcess = spawn('streamlink', ['-Q','hlsvariant://' + hls_url,'best','-o',path + '/' + filename])}
    if (config.downloadProgram == 'ff-ts') {captureProcess = spawn('ffmpeg', ['-hide_banner','-v','fatal','-i',hls_url,'-c','copy','-vsync','2','-r','60','-b:v','500k',path + '/' + filename])}
    if (config.downloadProgram == 'ff-flv') {captureProcess = spawn('ffmpeg', ['-hide_banner','-v','fatal','-i',hls_url,'-c:v','copy','-c:a','aac','-b:a','192k','-ar','44100',path + '/' + filename])}
+   if (config.downloadProgram == 'rtmp') {captureProcess = spawn('mfcd', [model.nm,path + '/' + filename])}
 
 captureProcess.stdout.on('data', function(data) {printMsg(data.toString())});
 
@@ -282,7 +285,7 @@ var modelsCurrentlyCapturing = new Array();
 
 var config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
 
-config.captureDirectory = path.resolve(config.captureDirectory);
+config.captureDirectory = path.resolve(config.captureDirectory) || 'C:\Videos\MFC';
 config.createModelDirectory = config.createModelDirectory || false;
 config.directoryFormat = config.directoryFormat || 'id+nm';
 config.dateFormat = config.dateFormat || 'DDMMYYYY-HHmmss';
