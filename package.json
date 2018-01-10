@@ -1,6 +1,6 @@
 {
     "name": "mfc-node",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "MyFreeCams Recorder",
     "main": "main.js",
     "scripts": {
